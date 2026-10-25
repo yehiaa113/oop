@@ -1,3 +1,6 @@
+Q1)
+
+
 import java.util.Scanner;
 
 public class JavaApplication6 {
@@ -12,7 +15,137 @@ public class JavaApplication6 {
             }
             System.out.println();
         }
-        input.close();
     }
 }
 
+
+Q2)
+
+
+import java.util.Scanner;
+
+public class Q2_SumOfDigits {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a positive integer: ");
+        int n = input.nextInt();
+        int digitSum = 0;
+
+        while (n > 0) {
+            digitSum += n % 10;
+            n /= 10;
+        }
+
+        System.out.println("Sum of digits: " + digitSum);
+    }
+}
+
+
+Q3)
+
+import java.util.Scanner;
+
+public class Q3_StarTriangle {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter number of rows (n): ");
+        int n = input.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= i; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+Q4)
+
+import java.util.Scanner;
+
+public class Q4_NumberStats {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+            int largest = Integer.MIN_VALUE;
+        int smallest = Integer.MAX_VALUE;
+            int sum = 0;
+        int count = 0;
+
+        while (true) {
+            System.out.print("Enter a positive integer (0 to stop): ");
+                int num = input.nextInt();
+            
+            if (num == 0) {
+                break;
+            }
+            
+            if (num > largest) {
+                largest = num;
+            }
+            if (num < smallest) {
+                smallest = num;
+            }
+            
+            sum += num;
+            count++;
+        }
+
+        if (count > 0) {
+            System.out.println("Largest number: " + largest);
+                System.out.println("Smallest number: " + smallest);
+            System.out.println("Average: " + ((double) sum / count));
+        } else {
+            System.out.println("No numbers were entered.");
+        }
+    }
+}
+
+
+Q5)
+
+import java.util.Scanner;
+
+public class Q5_NumberPattern {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter number of rows (n): ");
+        int n = input.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+Q6)
+import java.util.Scanner;
+
+public class Q6_PerfectNumber {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a positive integer: ");
+            int n = input.nextInt();
+        int divisorSum = 0;
+
+        for (int i = 1; i < n; i++) {
+            if (n % i == 0) {
+                 divisorSum += i;
+            }
+        }
+
+          if (divisorSum == n) {
+            System.out.println(n + " is a perfect number.");
+        } else {
+            System.out.println(n + " is not a perfect number.");
+        }
+    }
+}
