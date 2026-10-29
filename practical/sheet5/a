@@ -1,1 +1,100 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package javaapplication128;
+import java.util.Scanner;
+
+
+/**
+ *
+ * @author Student
+ */
+public class JavaApplication128 {
+    public static int generateSecret(){
+        return (int)(Math.random()*50+1);
+    }
+    public static String checkGuess(int guess,int secret){
+        if(guess==secret){
+           return "correct";
+        }else if(guess<secret){
+            return"higher";
+        }else{return"lower";}
+        
+    }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        int secret=generateSecret();
+        int[]guesses=new int[5];
+        int attemps=0;
+        for(int i=0;i<5;i++){
+            System.out.print("Guess :");
+            guesses[i] =input.nextInt();
+            attemps++;
+             String result=checkGuess(guesses[i],secret);
+              System.out.print(result);
+              if(result.equals("Correct ")){
+                  System.out.print("correct in "+ attemps +"attempts");
+                    return;
+              }
+                           System.out.print("the secret number was "+ secret);
+
+        }
+    
+    }
+    
+}
+
+
+
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package javaapplication130;
+import java.util.Scanner;
+public class JavaApplication130 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        String[][] students = new String[3][2];
+        int countA = 0;
+        int countPrefix = 0;
+           System.out.println("Enter name and grade for 3 students:");
+        for (int i = 0; i < 3; i++) {
+            students[i][0] = input.next();
+            students[i][1] = input.next();
+        }
+        for (int i = 0; i < 3; i++) {
+            System.out.println(
+                students[i][0].concat(": ").concat(students[i][1])
+            );
+
+            if (students[i][1].equalsIgnoreCase("A")) {
+                countA++;
+            }
+        }
+        System.out.println("Students with grade A: " + countA);
+        System.out.println("Enter first letter:");
+        String prefix = input.next();
+
+        for (int i = 0; i < 3; i++) {
+            if (students[i][0].startsWith(prefix)) {
+                countPrefix++;
+            }
+        }
+        System.out.println("Names starting with " + prefix + ": " + countPrefix);
+
+        input.close();
+    }
+}
 
