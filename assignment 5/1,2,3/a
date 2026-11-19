@@ -1,1 +1,153 @@
+Q1)
 
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+import java.util.Scanner;
+/**
+ *
+ * @author HP
+ */
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int[] nums = new int[6];
+        System.out.println("Enter 6 numbers:");
+        for (int i = 0; i < 6; i++) {
+            nums[i] = in.nextInt();
+        }
+        System.out.print("Reverse: ");
+        for (int i = 5; i >= 0; i--) {
+            System.out.print(nums[i] + " ");
+        }
+        System.out.println();
+        int sum = 0;
+        for (int i = 0; i < 6; i++) {
+            if (nums[i] % 2 == 0) {
+                sum += nums[i];
+            }
+        }
+        System.out.println("Sum of even numbers: " + sum);
+        int count = 0;
+        for (int i = 0; i < 6; i++) {
+            if (nums[i] > nums[0]) {
+                count++;
+            }
+        }
+        System.out.println("Greater than the first number: " + count);
+    }
+}
+
+
+Q2)
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.util.Scanner;
+/**
+ *
+ * @author HP
+ */
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        char[][] board = new char[3][3];
+        int xCount = 0;
+        int oCount = 0;
+        boolean fullXRow = false;
+        System.out.println("Enter 9 cells (X or O):");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                board[i][j] = in.next().charAt(0);
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == 'X') {
+                    xCount++;
+                }
+                else if (board[i][j] == 'O') {
+                    oCount++;
+                }
+            }
+        }
+        System.out.println("X count: " + xCount);
+        System.out.println("O count: " + oCount);
+        for (int i = 0; i < 3; i++) {
+            if (board[i][0] == 'X' &&
+                board[i][1] == 'X' &&
+                board[i][2] == 'X') {
+                fullXRow = true;
+            }
+        }
+        if (fullXRow) {
+            System.out.println("X has a full row");
+        }
+        else {
+            System.out.println("No full X row");
+        }
+    }
+}
+
+
+
+Q3)
+
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+import java.util.Scanner;
+
+public class Q3 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        char[][] grid = new char[3][4];
+        System.out.println("Enter 3 words (4 letters each):");
+        for (int i = 0; i < 3; i++) {
+            String word = in.next();
+            for (int j = 0; j < 4; j++) {
+                grid[i][j] = word.charAt(j);
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                System.out.print(grid[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.print("Columns: ");
+        for (int j = 0; j < 4; j++) {
+            String column = "";
+            for (int i = 0; i < 3; i++) {
+                column = column.concat(String.valueOf(grid[i][j]));
+            }
+            System.out.print(column + " ");
+        }
+        System.out.println();
+        int vowels = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                if ("aeiou".indexOf(grid[i][j]) != -1) {
+                    vowels++;
+                }
+            }
+        }
+        System.out.println("Vowels: " + vowels);
+    }
+}
